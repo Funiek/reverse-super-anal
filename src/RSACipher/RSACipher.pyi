@@ -1,13 +1,18 @@
 class RSAKey:
-
-    def __init__(self) -> None: ...
-
+    p: int
+    q: int
+    n: int
+    fi: int
+    e: int
+    RANGES: tuple
     def generate_primes(self): ...
 
 
 class RSAPrivateKey(RSAKey):
 
     def __init__(self) -> None: ...
+
+    def get_public_key(self): ...
 
 
 def get_public_key(self): ...
