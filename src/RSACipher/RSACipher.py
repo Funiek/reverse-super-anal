@@ -26,6 +26,9 @@ class RSAPublicKey(RSAKey):
         self.n = n
         self.e = e
 
+    def __str__(self) -> str:
+        return f'RSAPublicKey( n={self.n}, e={self.e} )'
+
 
 class RSAPrivateKey(RSAKey):
 
