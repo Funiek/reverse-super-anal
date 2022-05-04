@@ -37,6 +37,8 @@ class RSAPrivateKey(RSAKey):
 
     def __init__(self) -> None:
         super().__init__()
+
+    def create_key(self):
         RSAKey.generate_primes(self)
 
         self.n = self.q * self.p
@@ -51,10 +53,33 @@ class RSAPrivateKey(RSAKey):
         return RSAPublicKey(self.n, self.e)
 
     def __str__(self):
-        return f'RSAPrivateKey( p={self.p}, q={self.q} )'
+        return f'RSAPrivateKey( n={self.n}, d={self.d} )'
+
+
+class RSACipher:
+    private_key: RSAPrivateKey
+    public_key: RSAKey
+
+    def __init__(self):
+        pass
+
+    def initialize(self):
+        self.private_key = RSAPrivateKey()
+        self.private_key.create_key()
+        self.public_key = self.private_key.get_public_key()
+
+    def __str__(self) -> str:
+        return f'RSACipher( privateKey={self.private_key}, public_key={self.public_key} )'
 
 
 if __name__ == "__main__":
     rsa_pk = RSAPrivateKey()
+    rsa_pk.create_key()
     print(rsa_pk)
     print(rsa_pk.get_public_key())
+
+    rsa_c = RSACipher()
+    rsa_c.initialize()
+    print(rsa_c)
+
+
