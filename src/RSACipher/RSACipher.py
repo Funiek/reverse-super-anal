@@ -32,8 +32,8 @@ class RSAPublicKey(RSAKey):
     def __str__(self) -> str:
         return f'RSAPublicKey( n={self.n}, e={self.e} )'
 
-    def decrypt(self, value: int) -> str:
-        return chr(pow(value, self.e, self.n))
+    def decrypt(self, value: int) -> bytes:
+        return pow(value, self.e, self.n)
 
 
 class RSAPrivateKey(RSAKey):
@@ -80,7 +80,7 @@ class RSACipher:
     def encrypt(self, value: int) -> bytes:
         return self.private_key.encrypt(value)
 
-    def decrypt(self, value: bytes) -> str:
+    def decrypt(self, value: bytes) -> bytes:
         return self.public_key.decrypt(value)
 
 

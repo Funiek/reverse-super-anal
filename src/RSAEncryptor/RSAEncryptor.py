@@ -25,9 +25,14 @@ class RSAEncryptor:
     def encrypt(self, values: bytes) -> list:
         return [self.encryptor.encrypt(v) for v in values]
 
-    def decrypt(self, value: list) -> str:
+    def decrypt(self, value: list) -> bytes:
 
-        return ''.join([self.encryptor.decrypt(v) for v in value])
+        return bytearray([int(self.encryptor.decrypt(v)) for v in value])
+
+    def decrypt_str(self, value: list) -> str:
+
+        return self.decrypt(value).decode()
+
 
 
 def int_to_bytes(x: int) -> bytes:
