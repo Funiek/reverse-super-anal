@@ -82,14 +82,3 @@ class RSACipher:
 
     def decrypt(self, value: bytes) -> bytes:
         return self.private_key.decrypt(value)
-
-
-if __name__ == "__main__":
-    rsa_pk = RSAPrivateKey()
-    rsa_pk.create_key()
-    print(rsa_pk)
-    print(rsa_pk.get_public_key())
-
-    rsa_c = RSACipher()
-    rsa_c.initialize()
-    print(rsa_c)
