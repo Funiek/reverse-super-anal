@@ -18,9 +18,8 @@ def main():
     de = rsa_encryptor.decrypt(en)
     print(de)
 
-    with open('data.result.bin','wb+') as file:
+    with open('data.result.bin', 'wb+') as file:
         file.write(de)
-
 
     print()
     print()
@@ -29,6 +28,13 @@ def main():
     print(rsa_encryptor.encryptor.public_key)
     print(rsa_encryptor.encryptor.private_key)
 
+    with open('data.bin', 'rb') as file:
+        value1 = file.read()
+
+    with open('data.result.bin', 'rb') as file:
+        value2 = file.read()
+
+    assert value1 == value2
 
 if __name__ == '__main__':
     main()
