@@ -4,7 +4,7 @@ from src.RSAEncryptor.RSAEncryptor import RSAEncryptor
 def main():
     rsa_encryptor = RSAEncryptor()
     print(rsa_encryptor.encrypt_str("123"))
-    print(rsa_encryptor.decrypt(rsa_encryptor.encrypt_str("123")))
+    print(rsa_encryptor.decrypt_str(rsa_encryptor.encrypt_str("123")))
 
     print()
     print()
