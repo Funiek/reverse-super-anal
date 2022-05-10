@@ -1,6 +1,5 @@
 from src.RSAEncryptor.RSAEncryptor import RSAEncryptor
 
-
 def main():
     rsa_encryptor = RSAEncryptor()
     print(rsa_encryptor.encrypt_str("123"))

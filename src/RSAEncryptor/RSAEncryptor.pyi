@@ -1,4 +1,4 @@
-from src.RSACipher.RSACipher import RSACipher, RSAPrivateKey, RSAPublicKey
+from RSACipher.RSACipher import RSACipher, RSAPrivateKey, RSAPublicKey
 
 
 class RSAEncryptor:
